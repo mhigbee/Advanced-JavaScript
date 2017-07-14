@@ -57,7 +57,9 @@ const filter = (elements, cb) => {
 };
 
 const flatten = (elements) => {
-  elements.reduce((a, b) => a.concat(b), []);
+  return elements.reduce((flat, toFlatten) => {
+    return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
+  }, []);
 //   var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) {
 //   return a.concat(b);
 // }, []);
