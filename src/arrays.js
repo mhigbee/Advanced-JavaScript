@@ -60,9 +60,6 @@ const flatten = (elements) => {
   return elements.reduce((flat, toFlatten) => {
     return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
   }, []);
-//   var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) {
-//   return a.concat(b);
-// }, []);
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
 };
