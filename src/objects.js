@@ -48,6 +48,16 @@ const invert = (obj) => {
 };
 
 const defaults = (obj, defaultProps) => {
+  const trackingArray = Object.keys(obj);
+  const comparableArray = Object.keys(defaultProps);
+  for (let i = 0; i < trackingArray.length; i++) {
+    for (let j = 0; j < comparableArray.length; j++) {
+      if (trackingArray[i] !== comparableArray[j]) {
+        obj[comparableArray[j]] = defaultProps[comparableArray[j]];
+      }
+    }
+  }
+  return obj;
   // Fill in undefined properties that match properties on the `defaultProps` parameter object.
   // Return `obj`.
   // http://underscorejs.org/#defaults
