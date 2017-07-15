@@ -10,8 +10,8 @@ class User {
   }
 
   checkPassword(string) {
-   if(string === this.password) return true;
-   return false;
+    if (string === this.password) return true;
+    return false;
   }
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
@@ -28,26 +28,20 @@ const checkPassword = function comparePasswords(passwordToCompare) {
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
   // note that we use the `function` keyword and not `=>`
-  if(passwordToCompare === this.password) return true;
+  if (passwordToCompare === this.password) return true;
   return false;
 };
-
-
-
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
 
-
 // .call
-const callResult = checkPassword.call(me,'correcthorsebatterystaple');
+const callResult = checkPassword.call(me, 'correcthorsebatterystaple');
 // console.log(res);
 
 // .apply
 const applyResult = checkPassword.apply(me, ['correcthorsebatterystaple']);
 // console.log(whatev);
 
-
 // .bind
 const bindResult = checkPassword.bind(me);
-console.log(bindResult('correcthorseba'));

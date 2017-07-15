@@ -13,8 +13,8 @@ class User {
   }
 
   comparePasswords(string) {
-   if(string === this.password) return true;
-   return false;
+    if (string === this.password) return true;
+    return false;
   }
 }
 
@@ -28,27 +28,22 @@ class User {
 // property set on the Cat instance.
 
 class Animal {
-	constructor(options) {
-		this.age = options.age;
-	}
-	growOlder() {
-		return this.age;	
-	}
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder() {
+    return this.age;
+  }
 }
-
 class Cat extends Animal {
-	constructor(options) {
-		super(options);
-		this.name = options.name;
-	}
-	meow() {
-		return `${this.name} meowed!`;
-	}
-
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+  meow() {
+    return `${this.name} meowed!`;
+  }
 }
-
-const felix = new Cat({age: 7, name: 'Felix',})
-console.log(felix.growOlder());
 
 module.exports = {
   User,
