@@ -29,14 +29,20 @@ const counterFactory = () => {
 };
 
 const limitFunctionCallCount = (cb, n) => {
-  let nCounter = 0;
-  if (nCounter < n) {
-    nCounter++;
-    const invokecb = () => {
-      cb();
-    };
-    return invokecb;
-  }
+  let callCount = 0;
+  return (...args) => {
+    if (callCount === n) return null;
+    callCount++;
+    return cb(...args);
+  };
+  // let nCounter = 0;
+  // if (nCounter < n) {
+  //   nCounter++;
+  //   const invokecb = () => {
+  //     cb();
+  //   };
+  //   return invokecb;
+  // }
   // Should return a function that invokes `cb`.
   // The returned function should only allow `cb` to be invoked `n` times.
 };
