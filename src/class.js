@@ -8,7 +8,7 @@
 
 class User {
   constructor(options) {
-    this.username = options.username;
+    this.email = options.email;
     this.password = options.password;
   }
 
@@ -32,7 +32,7 @@ class Animal {
     this.age = options.age;
   }
   growOlder() {
-    return this.age;
+    return ++this.age;
   }
 }
 class Cat extends Animal {
