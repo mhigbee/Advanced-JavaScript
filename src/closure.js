@@ -48,6 +48,26 @@ const limitFunctionCallCount = (cb, n) => {
 };
 
 const cacheFunction = (cb) => {
+  const theCache = [];
+  const getCacheEntry = (args) => {
+    for (let i = 0; i < theCache.length; i++) {
+      if (theCache[i].args === args) {
+        return theCache[i];
+      }
+    }
+    return null;
+  };
+  const caching = (...args) => {
+    const cacheEntry = getCacheEntry(args);
+    if (cacheEntry === null) {
+      // can call the cb;
+      const callBackValue = cb(...args);
+      theCache.push({ callBackValue, args });
+      return callBackValue;
+    }
+    return cacheEntry.callBackValue;
+  };
+  return caching;
   // Should return a funciton that invokes `cb`.
   // A cache (object) should be kept in closure scope.
   // The cache should keep track of all arguments have been used to invoke this function.
